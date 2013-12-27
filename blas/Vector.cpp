@@ -1,42 +1,42 @@
 #include "Vector.h"
 #include "Random.h"
 
-template <class T>
+template <typename T>
 Vector<T>::Vector(const Vector& rhs) : _size(rhs._size), _array(new T[rhs._size])
 {
-	register int i;
+	register unsigned int i;
 	for (i = 0; i < this->_size; i++)
 		this->_array[i] = rhs._array[i];
 }
 
-template <class T>
+template <typename T>
 Vector<T>::Vector(unsigned int size, T min, T max) : _size(size), _array(new T[size])
 {
 	Random::init();
-	register int i;
+	register unsigned int i;
 	for (i = 0; i < this->_size; i++)
 		this->_array[i] = Random::next<T>(min, max);
 }
 
-template <class T>
+template <typename T>
 Vector<T>::~Vector(void)
 {
 	delete[] this->_array;
 }
 
-template <class T>
+template <typename T>
 T& Vector<T>::operator[](unsigned int index)
 {
 	return(this->_array[index]);
 }
 
-template <class T>
+template <typename T>
 T const& Vector<T>::operator[](unsigned int index) const
 {
 	return(this->_array[index]);
 }
 
-template <class T>
+template <typename T>
 Vector<T>& Vector<T>::operator=(const Vector<T>& rhs)
 {
 	if (this != &rhs){
@@ -47,7 +47,7 @@ Vector<T>& Vector<T>::operator=(const Vector<T>& rhs)
 	return *this;
 }
 
-template <class T>
+template <typename T>
 int Vector<T>::size(void)
 {
 	return _size;
