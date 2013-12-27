@@ -9,18 +9,17 @@
 #error Plaftorm not supported
 #endif
 
-template Random<double>;
-template Random<float>;
-template Random<int>;
-
-template <class T>
-void Random<T>::init(void)
+void Random::init(void)
 {
-	srand(time(NULL));
+	srand((unsigned int) time(NULL));
 }
 
-template <class T>
-T Random<T>::next(T min, T max)
+template <typename T> 
+static T Random::next(T min, T max)
 {
-	return (min + ( (T) rand() / (RAND_MAX / (max - min))));
+	return (min + ((T) rand() / (RAND_MAX / (max - min))));
 }
+
+template int Random::next<int>(int, int);
+template float Random::next<float>(float, float);
+template double Random::next<double>(double, double);

@@ -1,6 +1,5 @@
 #pragma once
-
-template <class T> 
+template <class T>
 class Vector
 {
 public:
@@ -9,13 +8,13 @@ public:
 	~Vector(void);
 
 	T& operator[](unsigned int);
-	T const& operator[](unsigned int) const; 
+	T const& operator[](unsigned int) const;
 	Vector<T>& operator=(const Vector<T>&);
 
 	int size(void);
 
 private:
-	T* _array;	
+	T* _array;
 	unsigned int _size;
 };
 
