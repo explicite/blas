@@ -2,6 +2,20 @@
 #include "Random.h"
 
 template <typename T>
+Vector<T>::Vector(void) : _size(0), _array(new T[0])
+{
+	//Default constructor
+}
+
+template <typename T>
+Vector<T>::Vector(unsigned int size) : _size(size), _array(new T[size])
+{
+	register unsigned int i;
+	for (i = 0; i < this->_size; i++)
+		this->_array[i] = 0;
+}
+
+template <typename T>
 Vector<T>::Vector(const Vector& rhs) : _size(rhs._size), _array(new T[rhs._size])
 {
 	register unsigned int i;
@@ -22,6 +36,7 @@ template <typename T>
 Vector<T>::~Vector(void)
 {
 	delete[] this->_array;
+	this->_size = 0;
 }
 
 template <typename T>
@@ -48,7 +63,7 @@ Vector<T>& Vector<T>::operator=(const Vector<T>& rhs)
 }
 
 template <typename T>
-int Vector<T>::size(void)
+unsigned int Vector<T>::size(void)
 {
 	return _size;
 }

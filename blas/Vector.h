@@ -3,6 +3,8 @@ template <typename T>
 class Vector
 {
 public:
+	Vector(void);
+	Vector(unsigned int);
 	Vector(const Vector&);
 	Vector(unsigned int, T, T);
 	~Vector(void);
@@ -11,7 +13,7 @@ public:
 	T const& operator[](unsigned int) const;
 	Vector<T>& operator=(const Vector<T>&);
 
-	int size(void);
+	unsigned int size(void);
 
 private:
 	T* _array;
