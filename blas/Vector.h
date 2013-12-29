@@ -9,8 +9,8 @@ public:
 	Vector(unsigned int, T, T);
 	~Vector(void);
 
-	T& operator[](unsigned int);
-	T const& operator[](unsigned int) const;
+	inline T& operator[](unsigned int);
+	inline T const& operator[](unsigned int) const;
 	Vector<T>& operator=(const Vector<T>&);
 
 	unsigned int size(void);

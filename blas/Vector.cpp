@@ -2,18 +2,10 @@
 #include "Random.h"
 
 template <typename T>
-Vector<T>::Vector(void) : _size(0), _array(new T[0])
-{
-	//Default constructor
-}
+Vector<T>::Vector(void) : _size(0), _array(new T[0]) {}
 
 template <typename T>
-Vector<T>::Vector(unsigned int size) : _size(size), _array(new T[size])
-{
-	register unsigned int i;
-	for (i = 0; i < this->_size; i++)
-		this->_array[i] = 0;
-}
+Vector<T>::Vector(unsigned int size) : _size(size), _array(new T[size]) {}
 
 template <typename T>
 Vector<T>::Vector(const Vector& rhs) : _size(rhs._size), _array(new T[rhs._size])
@@ -40,7 +32,7 @@ Vector<T>::~Vector(void)
 }
 
 template <typename T>
-T& Vector<T>::operator[](unsigned int index)
+inline T& Vector<T>::operator[](unsigned int index)
 {
 	return(this->_array[index]);
 }
@@ -52,7 +44,7 @@ T const& Vector<T>::operator[](unsigned int index) const
 }
 
 template <typename T>
-Vector<T>& Vector<T>::operator=(const Vector<T>& rhs)
+inline Vector<T>& Vector<T>::operator=(const Vector<T>& rhs)
 {
 	if (this != &rhs){
 		_size = rhs._size;

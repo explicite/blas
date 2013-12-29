@@ -11,13 +11,13 @@ public:
 	Matrix(unsigned int, unsigned int, T, T);
 	~Matrix(void);
 
-	T get(unsigned int, unsigned int);
-	void set(T, unsigned int, unsigned int);
+	inline T get(unsigned int, unsigned int);
+	inline void set(T, unsigned int, unsigned int);
 	Matrix<T>& operator=(const Matrix<T>&);
 
 private:
-	Vector<T>* _vector;
-	unsigned int _column_size;
-	unsigned int _row_size;
+	Vector<T> _vector;
+	unsigned int _m;
+	unsigned int _n;
 };
 
