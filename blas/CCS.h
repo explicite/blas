@@ -1,8 +1,9 @@
 #pragma once
+template <typename T>
 class CCS
 {
 public:
-	CCS();
-	~CCS();
+	CCS(void);
+	~CCS(void);
 };
 

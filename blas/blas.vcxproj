@@ -66,6 +66,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BLAS.h" />
     <ClInclude Include="CRS.h" />
     <ClInclude Include="CCS.h" />
     <ClInclude Include="Matrix.h" />
@@ -73,6 +74,7 @@
     <ClInclude Include="Vector.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BLAS.c" />
     <ClCompile Include="CRS.cpp" />
     <ClCompile Include="CCS.cpp" />
     <ClCompile Include="Main.cpp" />

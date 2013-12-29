@@ -1,11 +1,11 @@
 #include "CCS.h"
 
-
-CCS::CCS()
+template <typename T>
+CCS<T>::CCS(void)
 {
 }
 
-
-CCS::~CCS()
+template <typename T>
+CCS<T>::~CCS(void)
 {
 }
