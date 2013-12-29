@@ -2,16 +2,38 @@
 #include "BLAS.h"
 
 // Vector - Vector
-float* vvpf(const float* vec1, const float* vec2, unsigned int m)
+float dvvpf(const float* vec1, const float* vec2, unsigned int n)
 {
-	float* product = (float*)malloc(sizeof(float)*m);
+	float product = 0;
+
+	register unsigned int i;
+	for (i = 0; i < n; i++)
+		product += vec1[i] * vec2[i];
 
 	return product;
 }
 
-double* vvpd(const double* vec1, const double* vec2, unsigned int m)
+double dvvpd(const double* vec1, const double* vec2, unsigned int n)
 {
-	double* product = (double*)malloc(sizeof(double)*m);
+	double product = 0;
+
+	register unsigned int i;
+	for (i = 0; i < n; i++)
+		product += vec1[i] * vec2[i];
+
+	return product;
+}
+
+float* cvvpf(const float* vec1, const float* vec2, unsigned int n)
+{
+	float* product = (float*)malloc(sizeof(float)*n);
+
+	return product;
+}
+
+double* cvvpd(const double* vec1, const double* vec2, unsigned int n)
+{
+	double* product = (double*)malloc(sizeof(double)*n);
 
 	return product;
 }

@@ -1,6 +1,8 @@
 // Vector - Vector
-float* vvpf(const float* vec1, const float* vec2, unsigned int m);
-double* vvpd(const double* vec1, const double* vec2, unsigned int m);
+float dvvpf(const float* vec1, const float* vec2, unsigned int n);
+double dvvpd(const double* vec1, const double* vec2, unsigned int n);
+float* cvvpf(const float* vec1, const float* vec2, unsigned int n);
+double* cvvpd(const double* vec1, const double* vec2, unsigned int n);
 
 // Matrix - Vector
 float* mvpf(const float* mtx, const float* vec, unsigned int m, unsigned int n);
