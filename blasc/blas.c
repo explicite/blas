@@ -1,5 +1,5 @@
 #pragma once
-#include "BLAS.h"
+#include "blas.h"
 
 // Vector - Vector
 float dvvpf(const float* vec1, const float* vec2, unsigned int n)
