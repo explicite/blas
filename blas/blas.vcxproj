@@ -44,6 +44,7 @@
       <WarningLevel>EnableAllWarnings</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <PrecompiledHeaderFile />
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>

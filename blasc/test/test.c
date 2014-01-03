@@ -1,11 +1,13 @@
-#include "test.h"
+#include "../test.h"
 
-
-bool assert(double* a, double* b, unsigned int s)
+bool assert(void* a, void* b, unsigned int s)
 {
+	double* _a = (double*)a;
+	double* _b = (double*)b;
+
 	register unsigned int i;
 	for (i = 0; i < s; i++)
-	if (a[i] != b[i])
+	if (_a[i] != _b[i])
 		return false;
 
 	return true;

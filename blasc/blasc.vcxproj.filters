@@ -21,7 +21,16 @@
     <ClInclude Include="blas.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="struct\ccs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="struct\crs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="test.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cmock.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -29,10 +38,19 @@
     <ClCompile Include="blas.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="test.c">
+    <ClCompile Include="main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="main.c">
+    <ClCompile Include="struct\ccs.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="struct\crs.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="test\test.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mock\cmock.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

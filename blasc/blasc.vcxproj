@@ -68,12 +68,18 @@
   <ItemGroup>
     <ClInclude Include="blas.h" />
     <ClInclude Include="bool.h" />
+    <ClInclude Include="cmock.h" />
+    <ClInclude Include="struct\ccs.h" />
+    <ClInclude Include="struct\crs.h" />
     <ClInclude Include="test.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="blas.c" />
     <ClCompile Include="main.c" />
-    <ClCompile Include="test.c" />
+    <ClCompile Include="mock\cmock.c" />
+    <ClCompile Include="struct\ccs.c" />
+    <ClCompile Include="struct\crs.c" />
+    <ClCompile Include="test\test.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
