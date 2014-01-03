@@ -33,9 +33,9 @@ void* mvp(const void* mtx, const void* vec, unsigned int m, unsigned int n)
 	double* _vec = (double*)vec;
 
 	register unsigned int i, j, nj;
-	register float xj;
+	register double xj;
 	register unsigned int i0, i1, i2;
-	register float yi0, yi1, yi2;
+	register double yi0, yi1, yi2;
 
 	for (i = 0; i < m; i += 3)
 	{

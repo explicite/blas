@@ -6,6 +6,6 @@
 #define PRECISION 10000.0
 #endif
 
-bool assert(void* a, void* b, unsigned int s);
+bool assert(const void* a, const void* b, const unsigned int s);
 
-bool equal(double d1, double d2);
+bool equal(const double d1, const double d2);

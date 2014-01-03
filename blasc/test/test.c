@@ -1,7 +1,10 @@
 #include "../test.h"
 
-bool assert(void* a, void* b, unsigned int s)
+bool assert(const void* a, const void* b, const unsigned int s)
 {
+	if (a != b)
+		return false;
+
 	double* _a = (double*)a;
 	double* _b = (double*)b;
 
@@ -13,7 +16,7 @@ bool assert(void* a, void* b, unsigned int s)
 	return true;
 }
 
-bool equal(double d1, double d2)
+bool equal(const double d1, const double d2)
 {
 	if ((((int)(d1 * PRECISION)) / PRECISION) == (((int)(d2 * PRECISION)) / PRECISION))
 		return true;
