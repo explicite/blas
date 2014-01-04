@@ -2,8 +2,8 @@
 
 bool assert(const void* a, const void* b, const unsigned int s)
 {
-	if (a != b)
-		return false;
+	if (a == b)
+		return true;
 
 	double* _a = (double*)a;
 	double* _b = (double*)b;

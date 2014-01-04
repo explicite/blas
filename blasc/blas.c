@@ -12,7 +12,7 @@ void* dvp(const void* v1, const void* v2, unsigned int n)
 	for (i = 0; i < n; i++)
 		product += _v1[i] * _v2[i];
 
-	return &product;
+	return (void*)&product;
 }
 
 void* cvp(const void* v1, const void* v2, unsigned int n)
@@ -21,14 +21,14 @@ void* cvp(const void* v1, const void* v2, unsigned int n)
 	double* _v1 = (double*)v1;
 	double* _v2 = (double*)v2;
 	//TODO
-	return (void*)product;
+	return product;
 }
 
 
 // Matrix - Vector
 void* mvp(const void* mtx, const void* vec, unsigned int m, unsigned int n)
 {
-	double* product = (double*)malloc(sizeof(double)*m);
+	double* _prd = (double*)malloc(sizeof(double)*m);
 	double* _mtx = (double*)mtx;
 	double* _vec = (double*)vec;
 
@@ -56,38 +56,38 @@ void* mvp(const void* mtx, const void* vec, unsigned int m, unsigned int n)
 			yi2 += _mtx[i2 + nj] * xj;
 		}
 
-		product[i0] = yi0;
-		product[i1] = yi1;
-		product[i2] = yi2;
+		_prd[i0] = yi0;
+		_prd[i1] = yi1;
+		_prd[i2] = yi2;
 	}
 
-	return (void*)product;
+	return _prd;
 }
 
 // Matrix - Matrix
-void* mmpf(const void* mtx1, const void* mtx2, unsigned int n)
+void* mmp(const void* mtx1, const void* mtx2, unsigned int n)
 {
-	double* product = (double*)malloc(sizeof(double)*n*n);
+	double* product = (double*)calloc(n*n, sizeof(double));
 	double* _mtx1 = (double*)mtx1;
 	double* _mtx2 = (double*)mtx2;
 
-	register unsigned int i, j, k, ii, jj, BLS;
+	register unsigned int i, j, k, ii, jj, BLSR, BLSC;
 
-	//TODO compute BLS
-	BLS = 2;
+	BLSR = 4;
+	BLSC = 2;
 
-	for (i = 0; i < n; i += BLS){
-		for (j = 0; j < n; j += BLS){
-			for (k = 0; k < n; k++){
-				for (jj = j; jj < jj + BLS; jj++){
-					for (ii = i; ii < ii + BLS; ii++){
-						product[ii + jj*n] = _mtx1[ii + k*n] + _mtx2[k + jj*n];
-					}
-				}
-			}
-		}
-	}
+	if (n < 100)
+		BLSR = 1;
+	BLSC = 1;
 
-	return (void*)product;
+	for (i = 0; i < n; i += BLSR)
+	for (j = 0; j < n; j += BLSC)
+	for (k = 0; k < n; k++)
+	for (ii = i; ii < i + BLSR; ii++)
+	for (jj = j; jj < j + BLSC; jj++)
+		product[ii + jj*n] += _mtx1[ii + k*n] * _mtx2[k + jj*n];
+
+
+	return product;
 }
 
