@@ -13,6 +13,24 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\para">
+      <UniqueIdentifier>{697b10f3-2b0d-4d51-a752-99e4c5f9ca16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\para\mpi">
+      <UniqueIdentifier>{7c34aee1-0454-41ae-991e-13965bb1e36a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\para\openmp">
+      <UniqueIdentifier>{ea12e51e-78d5-4f63-84c6-648fb0acf3d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\struct">
+      <UniqueIdentifier>{a767fff3-0bda-4a05-b4cf-3ed53a38f40c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\util">
+      <UniqueIdentifier>{f7eb971a-4860-4bf7-9ae5-9580b953b68c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\para\pthread">
+      <UniqueIdentifier>{392e61ed-b39c-4235-a893-9cbc535bf790}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bool.h">
@@ -33,6 +51,15 @@
     <ClInclude Include="cmock.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="mblasc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="oblasc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pblasc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="blas.c">
@@ -41,17 +68,26 @@
     <ClCompile Include="main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="para\mpi\mblasc.c">
+      <Filter>Source Files\para\mpi</Filter>
+    </ClCompile>
+    <ClCompile Include="para\openmp\oblasc.c">
+      <Filter>Source Files\para\openmp</Filter>
+    </ClCompile>
     <ClCompile Include="struct\ccs.c">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\struct</Filter>
     </ClCompile>
     <ClCompile Include="struct\crs.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="test\test.c">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\struct</Filter>
     </ClCompile>
     <ClCompile Include="mock\cmock.c">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\util</Filter>
+    </ClCompile>
+    <ClCompile Include="test\test.c">
+      <Filter>Source Files\util</Filter>
+    </ClCompile>
+    <ClCompile Include="para\pthread\pblasc.c">
+      <Filter>Source Files\para\pthread</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

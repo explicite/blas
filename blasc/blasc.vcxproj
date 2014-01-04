@@ -69,6 +69,9 @@
     <ClInclude Include="blas.h" />
     <ClInclude Include="bool.h" />
     <ClInclude Include="cmock.h" />
+    <ClInclude Include="mblasc.h" />
+    <ClInclude Include="oblasc.h" />
+    <ClInclude Include="pblasc.h" />
     <ClInclude Include="struct\ccs.h" />
     <ClInclude Include="struct\crs.h" />
     <ClInclude Include="test.h" />
@@ -77,6 +80,9 @@
     <ClCompile Include="blas.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="mock\cmock.c" />
+    <ClCompile Include="para\mpi\mblasc.c" />
+    <ClCompile Include="para\openmp\oblasc.c" />
+    <ClCompile Include="para\pthread\pblasc.c" />
     <ClCompile Include="struct\ccs.c" />
     <ClCompile Include="struct\crs.c" />
     <ClCompile Include="test\test.c" />
