@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <time.h>
 #else
-#error Plaftorm not supported
+#error Platform not supported
 #endif
 
 void Random::init(void)

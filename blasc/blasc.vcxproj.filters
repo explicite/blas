@@ -51,13 +51,13 @@
     <ClInclude Include="cmock.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="mblasc.h">
+    <ClInclude Include="pblas.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="oblasc.h">
+    <ClInclude Include="oblas.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="pblasc.h">
+    <ClInclude Include="mblas.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -67,12 +67,6 @@
     </ClCompile>
     <ClCompile Include="main.c">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="para\mpi\mblasc.c">
-      <Filter>Source Files\para\mpi</Filter>
-    </ClCompile>
-    <ClCompile Include="para\openmp\oblasc.c">
-      <Filter>Source Files\para\openmp</Filter>
     </ClCompile>
     <ClCompile Include="struct\ccs.c">
       <Filter>Source Files\struct</Filter>
@@ -86,8 +80,14 @@
     <ClCompile Include="test\test.c">
       <Filter>Source Files\util</Filter>
     </ClCompile>
-    <ClCompile Include="para\pthread\pblasc.c">
+    <ClCompile Include="para\openmp\oblas.c">
+      <Filter>Source Files\para\openmp</Filter>
+    </ClCompile>
+    <ClCompile Include="para\pthread\pblas.c">
       <Filter>Source Files\para\pthread</Filter>
+    </ClCompile>
+    <ClCompile Include="para\mpi\mblas.c">
+      <Filter>Source Files\para\mpi</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

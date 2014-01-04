@@ -1,4 +1,5 @@
 #pragma once
+
 // Vector - Vector
 void* dvp(const void* v1, const void* v2, unsigned int n);
 void* cvp(const void* v1, const void* v2, unsigned int n);
