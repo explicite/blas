@@ -1,4 +1,3 @@
-#pragma once
 #include "blas.h"
 
 // Vector - Vector

@@ -1,1 +1,98 @@
 #include "../../oblas.h"
+
+// Vector - Vector
+void* odvp(const void* v1, const void* v2, unsigned int n)
+{
+	double product = 0;
+	double* _v1 = (double*)v1;
+	double* _v2 = (double*)v2;
+
+	register int i;
+#pragma omp parallel for schedule(static) private(i)
+	for (i = 0; i < n; i++)
+		product += _v1[i] * _v2[i];
+
+	return (void*)&product;
+}
+
+void* ocvp(const void* v1, const void* v2, unsigned int n)
+{
+	double* product = (double*)malloc(sizeof(double)*n);
+	double* _v1 = (double*)v1;
+	double* _v2 = (double*)v2;
+	//TODO
+	return product;
+}
+
+
+// Matrix - Vector
+void* omvp(const void* mtx, const void* vec, unsigned int m, unsigned int n)
+{
+	double* _prd = (double*)malloc(sizeof(double)*m);
+	double* _mtx = (double*)mtx;
+	double* _vec = (double*)vec;
+
+	register int i, j;
+	register unsigned int nj;
+	register double xj;
+	register unsigned int i0, i1, i2;
+	register double yi0, yi1, yi2;
+
+#pragma omp parallel for schedule(static) private(i, j)
+	for (i = 0; i < m; i += 3)
+	{
+		i0 = i;
+		i1 = i + 1;
+		i2 = i + 2;
+
+		yi0 = 0.0;
+		yi1 = 0.0;
+		yi2 = 0.0;
+
+		for (j = 0; j < n; j++)
+		{
+			nj = n*j;
+			xj = _vec[j];
+			yi0 += _mtx[i0 + nj] * xj;
+			yi1 += _mtx[i1 + nj] * xj;
+			yi2 += _mtx[i2 + nj] * xj;
+		}
+
+		_prd[i0] = yi0;
+		_prd[i1] = yi1;
+		_prd[i2] = yi2;
+	}
+
+	return _prd;
+}
+
+// Matrix - Matrix
+void* ommp(const void* mtx1, const void* mtx2, unsigned int n)
+{
+	double* product = (double*)calloc(n*n, sizeof(double));
+	double* _mtx1 = (double*)mtx1;
+	double* _mtx2 = (double*)mtx2;
+
+	register int i, j;
+	register unsigned int k, ii, jj, BLSR, BLSC;
+
+	BLSR = 4;
+	BLSC = 2;
+
+	if (n < 100){
+		BLSR = 1;
+		BLSC = 1;
+	}
+
+#pragma omp parallel for schedule(static) private(i, j)
+	for (i = 0; i < n; i += BLSR)
+	for (j = 0; j < n; j += BLSC)
+	for (k = 0; k < n; k++)
+	for (ii = i; ii < i + BLSR; ii++)
+	for (jj = j; jj < j + BLSC; jj++)
+		product[ii + jj*n] += _mtx1[ii + k*n] * _mtx2[k + jj*n];
+
+
+	return product;
+}
+
