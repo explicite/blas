@@ -1,18 +1,15 @@
+#include <stdio.h>
 #include "blas.h"
 #include "pblas.h"
 #include "oblas.h"
 #include "test.h"
-#include <stdio.h>
 
-#define TEST
+
 void test();
 
 int main(int c, char** v, char** e)
 {
-
-#ifdef TEST 
 	test();
-#endif
 
 	getchar();
 	return 0;
@@ -108,5 +105,6 @@ void test()
 	free(a);
 	free(b);
 	free(c);
+	free(oc);
 	free(d);
 }
