@@ -3,6 +3,7 @@
 #include "pblas.h"
 #include "oblas.h"
 #include "test.h"
+#include "struct.h"
 
 
 void test();
@@ -29,15 +30,15 @@ void test()
 		b[i] = i * i;
 	}
 
-	double* dc = (double*)dvp((void*)a, (void*)b, s);
+	double dc = dvp(a, b, s);
 
-
-	if (equal(9, *dc))
+	if (equal(9, dc))
 		printf("Vector - Vector dot product ok\n");
 
+
 	//openMp
-	double* oc = (double*)odvp((void*)a, (void*)b, s);
-	if (equal(*oc, *dc))
+	double oc = odvp(a, b, s);
+	if (equal(oc, dc))
 		printf("OpenMp: Vector - Vector dot product ok\n");
 
 	free(a);
@@ -55,7 +56,7 @@ void test()
 	}
 
 	double* c = (double*)malloc(sizeof(double)*s);
-	c = (double*)mvp((void*)b, (void*)a, s, s);
+	c = (double*)mvp(b, a, s, s);
 
 	double* d = (double*)malloc(sizeof(double)*s);
 	d[0] = 3.0;
@@ -66,16 +67,16 @@ void test()
 		printf("Matrix - Vector product ok\n");
 
 	//openMp
-	oc = (double*)malloc(sizeof(double)*s);
-	oc = (double*)omvp((void*)b, (void*)a, s, s);
+	double* cc = (double*)malloc(sizeof(double)*s);
+	cc = omvp(b, a, s, s);
 
-	if (assert((void*)oc, (void*)d, s))
+	if (assert(cc, d, s))
 		printf("OpenMp: Matrix - Vector product ok\n");
 
 	free(a);
 	free(b);
 	free(c);
-	free(oc);
+	free(cc);
 	free(d);
 
 	// Matrix - Matrix
@@ -93,18 +94,18 @@ void test()
 	}
 	c = mmp(a, b, s);
 
-	if (assert((void*)c, (void*)d, s*s))
+	if (assert(c, d, s*s))
 		printf("Matrix - Matrix product ok\n");
 
 	//openMp
-	oc = ommp(a, b, s);
+	cc = ommp(a, b, s);
 	
-	if (assert((void*)oc, (void*)d, s*s))
+	if (assert(cc, d, s*s))
 		printf("OpenMp: Matrix - Matrix product ok\n");
 
 	free(a);
 	free(b);
 	free(c);
-	free(oc);
+	free(cc);
 	free(d);
 }

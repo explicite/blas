@@ -1,11 +1,11 @@
 #pragma once
 
 // Vector - Vector
-void* odvp(const void* v1, const void* v2, unsigned int n);
-void* ocvp(const void* v1, const void* v2, unsigned int n);
+double odvp(const double* v1, const double* v2, unsigned n);
+double* ocvp(const double* v1, const double* v2, unsigned n);
 
 // Matrix - Vector
-void* omvp(const void* mtx, const void* vec, unsigned int m, unsigned int n);
+double* omvp(const double* mtx, const double* vec, unsigned m, unsigned n);
 
 // Matrix - Matrix
-void* ommp(const void* mtx1, const void* mtx2, unsigned int n);
+double* ommp(const double* mtx1, const double* mtx2, unsigned n);

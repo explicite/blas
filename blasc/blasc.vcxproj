@@ -76,8 +76,11 @@
     <ClInclude Include="mblas.h" />
     <ClInclude Include="oblas.h" />
     <ClInclude Include="pblas.h" />
+    <ClInclude Include="struct.h" />
     <ClInclude Include="struct\ccs.h" />
     <ClInclude Include="struct\crs.h" />
+    <ClInclude Include="struct\matrix.h" />
+    <ClInclude Include="struct\vector.h" />
     <ClInclude Include="test.h" />
   </ItemGroup>
   <ItemGroup>
@@ -89,6 +92,8 @@
     <ClCompile Include="para\pthread\pblas.c" />
     <ClCompile Include="struct\ccs.c" />
     <ClCompile Include="struct\crs.c" />
+    <ClCompile Include="struct\matrix.c" />
+    <ClCompile Include="struct\vector.c" />
     <ClCompile Include="test\test.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,35 +1,30 @@
 #include "blas.h"
 
 // Vector - Vector
-void* dvp(const void* v1, const void* v2, unsigned int n)
+double dvp(const double* v1, const double* v2, unsigned  n)
 {
 	double product = 0;
-	double* _v1 = (double*)v1;
-	double* _v2 = (double*)v2;
 
-	register unsigned int i;
+	register unsigned i;
 	for (i = 0; i < n; i++)
-		product += _v1[i] * _v2[i];
+		product += v1[i] * v2[i];
 
-	return (void*)&product;
+	return product;
 }
 
-void* cvp(const void* v1, const void* v2, unsigned int n)
+double* cvp(const double* v1, const double* v2, unsigned  n)
 {
 	double* product = (double*)malloc(sizeof(double)*n);
-	double* _v1 = (double*)v1;
-	double* _v2 = (double*)v2;
+
 	//TODO
 	return product;
 }
 
 
 // Matrix - Vector
-void* mvp(const void* mtx, const void* vec, unsigned int m, unsigned int n)
+double* mvp(const double* mtx, const double* vec, unsigned m, unsigned n)
 {
 	double* _prd = (double*)malloc(sizeof(double)*m);
-	double* _mtx = (double*)mtx;
-	double* _vec = (double*)vec;
 
 	register unsigned int i, j, nj;
 	register double xj;
@@ -49,10 +44,10 @@ void* mvp(const void* mtx, const void* vec, unsigned int m, unsigned int n)
 		for (j = 0; j < n; j++)
 		{
 			nj = n*j;
-			xj = _vec[j];
-			yi0 += _mtx[i0 + nj] * xj;
-			yi1 += _mtx[i1 + nj] * xj;
-			yi2 += _mtx[i2 + nj] * xj;
+			xj = vec[j];
+			yi0 += mtx[i0 + nj] * xj;
+			yi1 += mtx[i1 + nj] * xj;
+			yi2 += mtx[i2 + nj] * xj;
 		}
 
 		_prd[i0] = yi0;
@@ -64,11 +59,9 @@ void* mvp(const void* mtx, const void* vec, unsigned int m, unsigned int n)
 }
 
 // Matrix - Matrix
-void* mmp(const void* mtx1, const void* mtx2, unsigned int n)
+double* mmp(const double* mtx1, const double* mtx2, unsigned n)
 {
 	double* product = (double*)calloc(n*n, sizeof(double));
-	double* _mtx1 = (double*)mtx1;
-	double* _mtx2 = (double*)mtx2;
 
 	register unsigned int i, j, k, ii, jj, BLSR, BLSC;
 
@@ -84,7 +77,7 @@ void* mmp(const void* mtx1, const void* mtx2, unsigned int n)
 	for (k = 0; k < n; k++)
 	for (ii = i; ii < i + BLSR; ii++)
 	for (jj = j; jj < j + BLSC; jj++)
-		product[ii + jj*n] += _mtx1[ii + k*n] * _mtx2[k + jj*n];
+		product[ii + jj*n] += mtx1[ii + k*n] * mtx2[k + jj*n];
 
 
 	return product;

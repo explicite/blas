@@ -15,7 +15,7 @@ bool assert(const void* a, const void* b, const unsigned int s)
 	double* _a = (double*)a;
 	double* _b = (double*)b;
 
-	register unsigned int i;
+	register unsigned i;
 	for (i = 0; i < s; i++)
 	{
 		if (!equal(_a[i], _b[i]))

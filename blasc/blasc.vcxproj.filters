@@ -60,6 +60,15 @@
     <ClInclude Include="mblas.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="struct\matrix.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="struct\vector.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="struct.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="blas.c">
@@ -88,6 +97,12 @@
     </ClCompile>
     <ClCompile Include="para\mpi\mblas.c">
       <Filter>Source Files\para\mpi</Filter>
+    </ClCompile>
+    <ClCompile Include="struct\matrix.c">
+      <Filter>Source Files\struct</Filter>
+    </ClCompile>
+    <ClCompile Include="struct\vector.c">
+      <Filter>Source Files\struct</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

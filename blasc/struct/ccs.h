@@ -2,10 +2,10 @@
 
 typedef struct
 {
-	void* val;
-	int* row_ind;
-	int val_size;
+	double* val;
+	unsigned* row_ind;
+	unsigned val_size;
 
-	int* col_ptr;
-	int col_size;
+	unsigned* col_ptr;
+	unsigned col_size;
 } ccs;
